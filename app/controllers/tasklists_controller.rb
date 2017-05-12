@@ -52,4 +52,6 @@ class TasklistsController < ApplicationController
   # Strong Parameter
   def tasklist_params
     params.require(:tasklist).permit(:content)
+    
+  end
 end
