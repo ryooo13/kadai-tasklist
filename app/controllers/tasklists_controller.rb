@@ -1,10 +1,11 @@
 class TasklistsController < ApplicationController
+  before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
   def index
     @tasklists = Tasklist.all
   end
 
   def show
-     @tasklist = Tasklist.find(params[:id])
+    
   end
 
   def new
@@ -24,7 +25,7 @@ class TasklistsController < ApplicationController
   end
 
   def edit
-    @tasklist = Tasklist.find(params[:id])
+   
   end
 
   def update
@@ -48,6 +49,10 @@ class TasklistsController < ApplicationController
   end
   
   private
+  
+   def set_tasklist
+    @tasklist = Tasklist.find(params[:id])
+    end
 
   # Strong Parameter
   def tasklist_params
