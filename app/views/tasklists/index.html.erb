@@ -9,7 +9,7 @@
         <th>ステータス</th>
       </tr>
     </thead>
-    <tbody>
+    <body>
       <% @tasklists.each do |tasklist| %>
         <tr>
           <td><%= link_to tasklist.id, tasklist %></td>
@@ -17,7 +17,7 @@
           <td><%= tasklist.content %></td>
         </tr>
       <% end %>
-    </tbody>
+    </body>
   </table>
   <div>
     <%= paginate @tasklists %>
