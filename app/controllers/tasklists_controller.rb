@@ -1,7 +1,7 @@
 class TasklistsController < ApplicationController
   before_action :set_tasklist, only: [:show, :edit, :update, :destroy]
   def index
-    @tasklists = Tasklist.all
+    @tasklists = Tasklist.order(created_at: :desc).page(params[:page]).per(3)
   end
 
   def show
@@ -57,6 +57,7 @@ class TasklistsController < ApplicationController
 
   # Strong Parameter
   def tasklist_params
+    # ActionController::Parametersというクラスのインスタンス
     params.require(:tasklist).permit(:content,:status)
     
   end
