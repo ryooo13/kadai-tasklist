@@ -1,12 +1,27 @@
-
-
-
-
 Rails.application.routes.draw do
+  get 'sessions/new'
+
+  get 'sessions/create'
+
+  get 'sessions/destroy'
+
+  # get 'users/index'
+
+  # get 'users/show'
+
+  # get 'users/new'
+
+  # get 'users/create'
+
   root to: 'tasklists#index'
-  # get 'tasklists/index'
-  # post 'tasklists/index', to: 'products#hogehoge'
-  
   resources :tasklists
+  
+  get 'signup', to: 'users#new'
+  resources :users, only: [:index, :show, :new, :create]
+  
+  get 'login', to: 'sessions#new'
+  post 'login', to: 'sessions#create'
+  delete 'logout', to: 'sessions#destroy'
+
   
 end
