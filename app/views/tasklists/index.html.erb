@@ -6,42 +6,9 @@
 </div>
 
 
-<h1>タスク一覧</h1>
-
-<% if @tasklists.any? %>
-  <table class="table table-striped">
-    <thead>
-      <tr>
-        <th>id</th>
-        <th>タスク</th>
-        <th>ステータス</th>
-      </tr>
-    </thead>
-    <body>
-      <% @tasklists.each do |tasklist| %>
-        <tr>
-          <td><%= link_to tasklist.id, tasklist %></td>
-          <td><%= tasklist.status %></td>
-          <td><%= tasklist.content %></td>
-        </tr>
-      <% end %>
-    </body>
-  </table>
-  <div>
-    <%= paginate @tasklists %>
-  </div>
-<% end %>
-
-<%= link_to '新規タスクの投稿', new_tasklist_path, class: "btn btn-primary" %>
-
 
 <% if logged_in? %>
   <p>ログイン完了ユーザ: <%= current_user.name %></p>
 <% else %>
-  <div class="center jumbotron">
-    <div class="text-center">
-      <h1>Welcome to the Microposts</h1>
-      <%= link_to 'Sign up now!', signup_path, class: 'btn btn-lg btn-primary' %>
-    </div>
-  </div>
+  
 <% end %>
